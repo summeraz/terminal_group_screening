@@ -1,0 +1,39 @@
+integrator      = md
+nsteps          = 1000000
+dt              = 0.001
+nstxout         = 5000
+nstvout         = 5000
+nstlog          = 1000
+nstenergy       = 1000
+nstxout-compressed = 2000
+
+comm_mode       = None
+
+gen-vel         = yes
+gen-temp        = 298.15
+gen-seed        = 12345
+
+cutoff-scheme   = Verlet
+nstlist         = 10
+ns_type         = grid
+
+coulombtype     = PME
+ewald-geometry  = 3dc
+rcoulomb        = 1.0
+rvdw            = 1.0
+
+constraints     = h-bonds
+lincs-warnangle = 90
+
+pbc             = xyz
+periodic-molecules = yes
+
+freezegrps      = bottom_frozen top_frozen
+freezedim       = Y Y Y Y Y Y
+
+tcoupl          = nose-hoover
+tc_grps         = System
+ref_t           = 298.15
+tau_t           = 1.0
+
+pcoupl          = no

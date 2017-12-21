@@ -1,0 +1,39 @@
+# Initialization
+units		real
+boundary	p p f
+atom_style	full
+
+# Assume ff info is included in data file
+pair_style	lj/cut/coul/cut 10.0
+bond_style  harmonic
+angle_style harmonic
+dihedral_style  opls
+
+read_data	init.lammps
+
+special_bonds lj/coul 0 0 0.5
+
+pair_modify shift yes mix geometric
+
+# Define groups
+variable bottom equal bound(all,zmin)
+variable top equal bound(all,zmax)
+variable fixmax equal ${bottom}+18.0
+variable fixmin equal ${top}-18.0
+region mobile block INF INF INF INF ${fixmax} ${fixmin}
+group mobile region mobile
+group fixed subtract all mobile
+
+neighbor		2.5 bin
+neigh_modify    exclude group fixed fixed
+
+timestep 0.1
+
+fix integrator mobile nve/limit 0.001
+
+thermo 100
+
+dump traj all xtc 1000 minimize.xtc
+dump_modify traj unwrap yes
+
+run 10000

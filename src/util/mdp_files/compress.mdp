@@ -1,0 +1,49 @@
+integrator         = md
+nsteps             = 500000
+dt                 = 0.002
+nstlog             = 2000
+nstenergy          = 2000
+nstxout-compressed = 2000
+
+comm_mode       = linear
+
+cutoff-scheme   = Verlet
+nstlist         = 10
+ns_type         = grid
+
+coulombtype     = PME
+ewald-geometry  = 3dc
+rcoulomb        = 1.0
+rvdw            = 1.0
+
+constraints     = h-bonds
+
+pbc             = xyz
+periodic-molecules = yes 	; periodic amorphous silica
+
+tcoupl          = nose-hoover
+tc_grps         = System
+ref_t           = 298.15
+tau_t           = 1.0
+
+pcoupl          = no
+
+; Freeze groups
+freezegrps = bottom_surface top_surface
+freezedim = Y Y N Y Y Y
+
+; Pull info
+pull                  = yes
+pull-ngroups          = 2
+pull-ncoords          = 1
+
+pull-group1-name      = bottom_surface
+pull-group2-name      = top_surface
+
+pull-print-components  = yes
+
+pull-coord1-type      = constant-force
+pull-coord1-geometry  = direction-periodic
+pull-coord1-vec       = 0.0 0.0 -1.0
+pull-coord1-groups    = 2 1
+pull-coord1-k         = 3125
