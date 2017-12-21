@@ -1,0 +1,11 @@
+Polar           Nonpolar            Aromatic        Bulky           Nitro           Hydrocarbon     Linear
+amino           acetyl              fluorophenyl    cyclopropyl     nitro           cyclopropyl     amino
+carboxyl        cyclopropyl         nitrophenyl     fluorophenyl    nitrophenyl     ethylene        cyano
+cyano           ethylene            phenyl          isopropyl                       isopropyl       ethylene
+hydroxyl        fluorophenyl                        nitrophenyl                     methyl          hydroxyl
+nitro           isopropyl                           phenyl                          phenyl          methoxy
+nitrophenyl     methoxy                             pyrrole                                         methyl
+                methyl                                                                              perfluoromethyl
+                perfluoromethyl
+                phenyl
+                pyrrole
