@@ -1,0 +1,26 @@
+# Bulky simulation output
+*cpt
+*edr
+*.gro*
+*log
+*xvg
+*tpr
+*xtc
+*trr
+*mdout*
+
+# Workflow files
+*out
+*err
+
+# MoSDeF output
+*lammps
+*mol2
+*ndx
+*top
+
+# Not sure what this is
+*npz
+
+# Post-processing text files
+workspace/*/*txt

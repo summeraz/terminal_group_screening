@@ -210,7 +210,8 @@ def _calc_interdigitation(name):
     ndx_file = 'init.ndx'
     traj = '{}.xtc'.format(name)
     if os.path.isfile(gro_file) and os.path.isfile(traj):
-        calc_interdigitation(traj, gro_file, out_file, ndx_file)
+        calc_interdigitation(traj_filename=traj, top_filename=gro_file,
+                             ndx_filename=ndx_file, output_filename=out_file)
 
 def _calc_roughness(name):
     from atools.structure import calc_monolayer_roughness
