@@ -20,18 +20,21 @@ is located, e.g.
 commit 320523d91535e497b5dbc2b6a821cc0453985055
 
 `>> git clone https://github.com/summeraz/atools.git`
+
 `>> pip install .`
 
 #### Clone and install mbuild
 commit fa2bc651823d8c0a93cac8721e0abf10a7b5e168
 
 `>> git clone https://github.com/mosdef-hub/mbuild.git`
+
 `>> pip install .`
 
 #### Clone and install foyer
 commit 1aa97bbebed22c94ad8d9d68486fbdbe7a3bd6d7
 
 `>> git clone https://github.com/mosdef-hub/foyer.git`
+
 `>> pip install .`
 
 #### Install signac-flow
