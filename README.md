@@ -5,8 +5,6 @@
 #### Download and install anaconda
 Note: I did this and in the /ccs/proj/ directory on Titan
 
-TO-DO: Provide link to the Titan page the describes the best way to do this...
-
 #### Create a new environment (3.5 is preferred)
 `>> conda create --name myconda python=3.5`
 
@@ -19,7 +17,7 @@ is located, e.g.
 `>> export PATH=/ccs/proj/xxx000/anaconda/titan/bin:$PATH`
 
 #### Clone and install atools
-commit 695cbec79cd5602c7fc83d6aff2789954afe0739
+commit 320523d91535e497b5dbc2b6a821cc0453985055
 
 `>> git clone https://github.com/summeraz/atools.git`
 `>> pip install .`
@@ -97,6 +95,9 @@ limit the number of simultaneous systems that can be initialized.
 `>> python src/project.py submit -o shear_5nN_grompp --bundle 400 --nn 400 -w 0.5`
 
 #### Run GROMACS shear at a normal load of 5nN
+
+Note: Shear was originally performed for 5ns and then extended another 5ns. The MDP files have been updated to include the full 10ns now.
+
 `>> python src/project.py submit -o shear_5nN --bundle 400 --nn 400 -w 4`
 
 #### Create TPR file for GROMACS shear at a normal load of 15nN
@@ -112,7 +113,7 @@ limit the number of simultaneous systems that can be initialized.
 `>> python src/project.py submit -o shear_25nN --bundle 400 --nn 400 -w 4`
 
 ----------
-## Analysis
+## Post-processing/Analysis
 #### Unwrap trajectories
 ```
 >> python src/analysis.py submit -o unwrap_shear_5nN --bundle 48 --nn 3 -w 1
@@ -126,11 +127,5 @@ limit the number of simultaneous systems that can be initialized.
 #### Calculate monolayer nematic order for each shear trajectory
 `>> python src/analysis.py submit -o calc_S2_shear --bundle 18 --nn 3 -w 1`
 
-#### Calculate average monolayer tilt angle for each shear trajectory
-`>> python src/analysis.py submit -o calc_tilt_shear --bundle 18 --nn 3 -w 1`
-
 #### Log COF
 `>> python src/analysis.py submit -o log_cof --bundle 48 --nn 3 -w 1`
-
-#### Create MOL2 file from Gromacs TOP file using ParmEd
-`>> python src/analysis.py submit -o top_to_mol2 --bundle 48 --nn 3 -w 1`
